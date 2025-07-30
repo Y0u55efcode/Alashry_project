@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "103671618212",
+    "project_id": "elashry-dffd9",
+    "storage_bucket": "elashry-dffd9.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103671618212:android:4b90148a0fa4642912e431",
+        "android_client_info": {
+          "package_name": "com.example.alashry"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARSgxr1-5llzTv5vBUfQLJVgpnbkhF8bM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
