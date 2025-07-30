@@ -1,0 +1,32 @@
+name: Build iOS Release App
+
+on:
+  push:
+    branches:
+      - main  # أو الفرع اللي تشتغل عليه
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.19.6'  # غيّرها حسب النسخة اللي بتستخدمها
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Build iOS release (no codesign)
+      run: flutter build ios --release --no-codesign
+
+    - name: Upload release build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: ios-release-build
+        path: build/ios/iphoneos/Runner.app
