@@ -1,0 +1,32 @@
+name: Build iOS Debug App
+
+on:
+  push:
+    branches:
+      - main  # أو الفرع اللي تشتغل عليه
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '3.29.3'  # أو النسخة اللي تستخدمها
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Build iOS (Debug - Simulator)
+      run: flutter build ios --debug
+
+    - name: Upload iOS app artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ios-debug-app
+        path: build/ios/iphonesimulator/Runner.app
